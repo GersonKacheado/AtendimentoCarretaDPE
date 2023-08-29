@@ -1,5 +1,4 @@
-<div class='panel bg-white' id='profissionais'>
-    <!-- INICIO PANEL DE ACESSO RÁDPIDO -->
+<div class='panel bg-white'>
         <div class='panel-heading'>
             <div style="padding: 1em;"> 
                 <h3 class='panel-title'> <?php echo strtoupper($op). ' Usuários do Sistema'; ?> </h3>
