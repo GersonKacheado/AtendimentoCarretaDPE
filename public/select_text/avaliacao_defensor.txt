@@ -1,0 +1,6 @@
+Ótimo
+Bom
+Regular
+Ruim
+Péssimo
+Não sabe/Não respondeu

@@ -1,0 +1,119 @@
+SELECT
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`idfila` AS `idfila`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_evento` AS `fk_evento`,
+    
+    `atendimento_carreta2023_dpeap`.`tbl_evento`.`id_evento` AS `id_evento`,
+    `atendimento_carreta2023_dpeap`.`tbl_evento`.`dsc_evento` AS `dsc_evento`,
+    `atendimento_carreta2023_dpeap`.`tbl_evento`.`endereco` AS `endereco_evento`,
+    `atendimento_carreta2023_dpeap`.`tbl_evento`.`data_inicio_eveento` AS `data_inicio_evento`,
+    `atendimento_carreta2023_dpeap`.`tbl_evento`.`data_fim_evento` AS `data_fim_evento`,
+    
+    `atendimento_carreta2023_dpeap`.`tbl_tipo_evento`.`id_tipo_evento` AS `id_tipo_evento`,
+    `atendimento_carreta2023_dpeap`.`tbl_tipo_evento`.`dsc_evento` AS `dsc_tipo_evento`,
+
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`cpf` AS `cpf`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`nome` AS `nome`,
+    `atendimento_carreta2023_dpeap`.`tbl_sexo_atendimento`.`nome_sexo` AS `nome_sexo`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`dsc_fisica` AS `dsc_fisica`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_obsnucleos` AS `fk_obsnucleos`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_obsacoes` AS `fk_obsacoes`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`endereco` AS `endereco`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`telefone` AS `telefone`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`observacao` AS `observacao`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_nivel_atenimeneto` AS `fk_nivel_atendimento`,
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`chamdo_para_atendimento` AS `chamado_para_atendimento`,
+    `atendimento_carreta2023_dpeap`.`tbl_nivel_atendimento`.`nome_nivel` AS `nome_nivel`,
+    `atendimento_carreta2023_dpeap`.`tbl_nucleo`.`dsc_nucleo` AS `dsc_nucleo`,
+    `atendimento_carreta2023_dpeap`.`tbl_acao`.`dsc_acao` AS `dsc_acao`,
+    `atendimento_carreta2023_dpeap`.`tbl_user`.`iduser` AS `iduser`,
+    `atendimento_carreta2023_dpeap`.`tbl_user`.`fk_funcao` AS `fk_funcao`,
+    `atendimento_carreta2023_dpeap`.`tbl_user`.`fk_tipo_user` AS `fk_tipo_user`,
+    `atendimento_carreta2023_dpeap`.`tbl_user`.`nome_user` AS `nome_user`,
+
+    DATE_FORMAT(
+        `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada`,
+        '%h:%i, %d/%m/%Y'
+    ) AS `inicio`,
+    DATE_FORMAT(
+        `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`,
+        '%h:%i, %d/%m/%Y'
+    ) AS `fim`,
+    CONCAT(
+        TIMESTAMPDIFF(
+            HOUR,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada` + INTERVAL TIMESTAMPDIFF(
+                DAY,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada`,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+            ) DAY,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+        ),
+        ':',
+        TIMESTAMPDIFF(
+            MINUTE,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada` + INTERVAL TIMESTAMPDIFF(
+                HOUR,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada`,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+            ) HOUR,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+        ),
+        ':',
+        TIMESTAMPDIFF(
+            SECOND,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada` + INTERVAL TIMESTAMPDIFF(
+                MINUTE,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_entrada`,
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+            ) MINUTE,
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`data_saida`
+        )
+    ) AS `tempo_de_espera`
+FROM
+  (
+    (
+        (
+            (
+                (
+                    (
+                        (
+                            `atendimento_carreta2023_dpeap`.`tbl_fila`
+                        JOIN `atendimento_carreta2023_dpeap`.`tbl_nivel_atendimento` ON
+                            (
+                                `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_nivel_atenimeneto` = `atendimento_carreta2023_dpeap`.`tbl_nivel_atendimento`.`idl_nivel_atendimento`
+                            )
+                        )
+                    LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_nucleo` ON
+                        (
+                            `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_obsnucleos` = `atendimento_carreta2023_dpeap`.`tbl_nucleo`.`idnucleo`
+                        )
+                    )
+                LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_acao` ON
+                    (
+                        `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_obsacoes` = `atendimento_carreta2023_dpeap`.`tbl_acao`.`id_acao`
+                    )
+                )
+            LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_atendentes` ON
+                (
+                    `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_atendente` = `atendimento_carreta2023_dpeap`.`tbl_atendentes`.`id_atendentes`
+                )
+            )
+        LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_sexo_atendimento` ON
+            (
+                `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_sexo_atendimento` = `atendimento_carreta2023_dpeap`.`tbl_sexo_atendimento`.`id_sexo_atendimento`
+            )
+        )
+    LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_user` ON
+        (
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_atendente` = `atendimento_carreta2023_dpeap`.`tbl_user`.`iduser`
+        )
+    )
+
+    LEFT JOIN `atendimento_carreta2023_dpeap`.`tbl_nucleo` ON
+        (
+            `atendimento_carreta2023_dpeap`.`tbl_fila`.`fk_obsnucleos` = `atendimento_carreta2023_dpeap`.`tbl_nucleo`.`idnucleo`
+        )
+    )
+
+WHERE
+    `atendimento_carreta2023_dpeap`.`tbl_fila`.`chamdo_para_atendimento` = 1

@@ -1,0 +1,15 @@
+Trabalho
+Estudo
+Leitura
+Nenhum
+Funcionário c/ carteira setor privado
+Funcionário s/ carteira setor privado
+Autônomo / Empresário Informal - Público/Civil ou Militar
+Funcionário Público/Servidor
+Empresário Formal
+Aposentado
+Estudante
+Desempregado procurando emprego
+Desempregado sem procurar emprego
+Outros/free lancer/Bico
+Não Sabe /Não Respondeu

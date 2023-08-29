@@ -1,0 +1,5 @@
+16 a 24 anos
+25 a 34 anos
+35 a 44 anos
+45 a 59 anos
+60 anos ou mais

@@ -1,0 +1,12 @@
+{
+    "name":"nomedoprojeto/sistema", 
+    "autoload":{
+        "psr-4":{
+            "App\\": "app/",
+            "App\\CLASSES": "CLASSES" 
+        }
+    },
+    "require": {
+        "twbs/bootstrap": "5.3.0-alpha1"
+    }
+}

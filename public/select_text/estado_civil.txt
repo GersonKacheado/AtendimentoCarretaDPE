@@ -1,0 +1,7 @@
+Casado(a)
+Solteiro(a)
+Divorciado(a)
+Víúvo(a)
+Separado(a) judicialmente
+União Estável
+Não Respondeu

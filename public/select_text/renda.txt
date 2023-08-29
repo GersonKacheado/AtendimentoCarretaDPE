@@ -1,0 +1,8 @@
+Até 500,00
+Acima de 500,00 até 1.212,00
+Acima de 1.212,00 até 2.424,00
+Acima de 2.424,00 até 3.636,00
+Acima de 3.636,00 até 4.848,00
+Acima de 4.848,00 até 6.060,00
+Acima de 6.060,00
+Não Sabe /Não Responde
