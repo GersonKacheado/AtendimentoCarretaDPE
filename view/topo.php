@@ -6,200 +6,245 @@
   else {
       include_once("model/conn.php"); // inclusao do acesso ao SGBD 
 ?>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Lista de Chamada - DPE</title>
-      <meta http-equiv="cache-control" content="no-cache,no-store" />
-      <meta http-equiv="pragma" content="no-cache" />
-      <meta http-equiv="expires" content="Mon, 04 mai 2018 11:12:01 GMT" />
-     
 
-      <link rel="stylesheet" href="public/bower_components/font-awesome/css/font-awesome.min.css">
-      <link rel="stylesheet" href="public/bower_components/Ionicons/css/ionicons.min.css">
-      <link rel="stylesheet" href="public/dist/css/AdminLTE.min.css">
-      <link rel="stylesheet" href="public/dist/css/skins/_all-skins.min.css">
-      <link rel="icon" href="public/img/favicon.ico" type="image/png" />
-      <link rel="stylesheet" href="public/bower_components/bootstrap/dist/css/bootstrap.min.css">
-     
-      
-<!--   
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
--->
-      <style>
-          *{outline:none!important;}
+<link rel="stylesheet" href="public/tmpt/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="public/tmpt/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="public/tmpt/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="public/tmpt/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="public/tmpt/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="public/tmpt/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="public/tmpt/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="public/tmpt/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
-          @font-face {
-              font-family:InYourFace;
-              src: url('Ubuntu-B.eot');
-              src: url('Ubuntu-B.eot?') format('☺'),
-              url('Ubuntu-B.woff') format('woff'),
-              url('Ubuntu-B.ttf') format('truetype'),
-              url('Ubuntu-B.svg#webfontssbCkuz5') format('svg');
-          }
-          @-ms-viewport{
-              width: extend-to-zoom;
-              zoom: 0.90;
-          }
-          input:focus,select:focus, textarea:focus{background: green; color: #fff; font-weight:bolder;}
 
 
-          @media (max-width: 480px) {
-            h3  {font-size: 1.4em; display: inline-block;}
-            table {overflow-y: 90%}
-            table thead  { display: inline-block;}
-            * {text-align: left;}
-            body {font-size: 1.2em;}
 
-            .bannercarreta{margin-top:400px;}
-          }
-          @media (max-width: 768px) {
-            table {display: block;}
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
 
-          }
-          #fonte_panel a:hover{color:#000 !important;}
-          .inner h2, h3, h4, .small-box-footer {color: #000 !important;}
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
 
-          input { color: : #fff !importante; }
-          #selecao_user {background: #ccc; color: #fff; }
-          #evento_user:focus, #selecao_user:focus {background: #ccc; color: #fff; font-weight:bolder;}
-   
-          body {
-    background: #eee; 
-}
-
-.toggle {
-    margin-bottom: 40px; 
-}
-
-.toggle > input {
-    display: none; 
-}
-
-.toggle > label {
-    position: relative;
-    display: block;
-    height: 20px;
-    width: 70px;
-    background: #898989;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: all 0.3s ease; 
-}
-.toggle > label:after {
-    position: absolute; 
-    left: -6px;
-    top: -3px;
-    display: block;
-    width: 26px;
-    height: 26px;
-    border-radius: 100px;
-    background: #6fbeb5;;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
-    content: '';
-    transition: all 0.3s ease; 
-}
-.toggle > label:active:after {
-    transform: scale(1.15, 0.85);
-}
-.toggle > input:checked ~ label { 
-    background: green; font-weight: bold;
-}
-.toggle > input:checked ~ label:after {
-    left: 55px; 
-    background: #fff;
-}
-.toggle > input:disabled ~ label {
-    background: #d5d5d5; 
-    pointer-events: none;
-}
-.toggle > input:disabled ~ label:after {
-    background: #bcbdbc;
-}
-#rotulo {font-size: 10px;}          
-      </style>
-
-      
-      <script src="public/json/jquery-1.11.2.min.js"></script>
-      <script src="public/bootstrap4/js/bootstrap.bundle.min.js"></script>
-      <script>
-          $(document).ready(function(){
-              $("#myInput").on("keyup", function() {
-                  var value = $(this).val().toLowerCase();
-                  $("#myTable tr").filter(function() {
-                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                  });
-              });
-          });
-          $(document).ready(function(){
-              $("#Input").on("keyup", function() {
-                  var value = $(this).val().toLowerCase();
-                  $("#tabela tr").filter(function() {
-                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                  });
-              });
-          });
-      </script>  
- 
-  </head>
-  <body class="hold-transition skin-blue sidebar-mini text-light-blue fixed">
-    <div class="wrapper">
-      <header class="main-header">
-        <a href="#" class="logo" style="background-color: rgba(0, 65, 83, 1) !important">
-          <span class="logo-mini"><b>D</b>pe</span>
-          <span class="logo-lg"><b>Chamada/</b>Dpe</span>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
         </a>
-        <nav class="navbar navbar-static-top"  style="background-color: rgba(0, 65, 83, 1) !important">
-          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"  
-            style="background-color: rgba(0, 65, 83, 1) !important">
-            <span class="html"></span>
-            <strong><?=@$_SESSION["EventoDsc_evento"] ;?></strong>
-            <strong><? // = $_SESSION["EventoTotal_evento"] ;?></strong>
- 
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
           </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
 
-<!-- INICIO a Apresentação do Usuário no topo da página principal -->        
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-               <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <?php $foto_ColunaA ="public/login/img/login/".$_SESSION["UsuarioFoto"];
-                        if (file_exists($foto_ColunaA))
-                            echo "<img src='$foto_ColunaA' class='user-image' alt='User Image'/>";
-                        else SemImgDados();?>
 
-                    <span class="hidden-xs"><?php echo strtoupper($_SESSION["UsuarioNome"]);?></span>
-                    <small class="hidden-xs"><?= ' - '.$_SESSION["UsuarioFuncao"];?></small>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="user-header">
-                      <?php $foto_ColunaA ="public/login/img/login/".$_SESSION["UsuarioFoto"];
-                      if (file_exists($foto_ColunaA))
-                          echo "<img src='$foto_ColunaA' class='img-circle' alt='User Image'/>";
-                      else SemImgDados();?>
-                    <p style='min-height: 10px'>
-                        <?=strtoupper($_SESSION["UsuarioNome"]);?>
-                      <small><?=$_SESSION["UsuarioCpf"].' - '.$_SESSION["UsuarioFuncao"] ;?></small>
-                      <small><strong><?=$_SESSION["UsuarioFuncao_user"] ;?></strong></small>
 
-                   </p>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-<!-- FIM a Apresentação do Usuário no topo da página principal -->        
-        </nav>
 
-<!-- Efeitos de ORdenacao nos capoms da tabela e busca -->
-    <script src="public/bower_components/layout/jquery.min.js"></script>
-    <link href="public/bower_components/layout/jquery.dataTables.min.css" rel="stylesheet">
 
-      </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="public/tmpt/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="public/tmpt/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="public/tmpt/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="public/tmpt/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="public/tmpt/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="public/tmpt/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="public/tmpt/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="public/tmpt/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="public/tmpt/plugins/moment/moment.min.js"></script>
+<script src="public/tmpt/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="public/tmpt/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="public/tmpt/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="public/tmpt/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="public/tmpt/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="public/tmpt/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="public/tmpt/dist/js/demo.js"></script>
 
 <?php } ?>

@@ -21,7 +21,7 @@
       <div class="col-md-11 col-lg-8 col-xl-5">
         <div class="card-header"> 
 <h4 class="h3 text-uppercase text-center text-secondary">Defensoria Pública do Estado do Amapá</h4>
-<p class="h4 text-center"><i class="text-sm"> Sistema de Atendimento  - </i><strong> <a href="https://defensoria.ap.def.br/" target="_blank" title="visitar site: https://defensoria.ap.def.br/" class="text-success text-uppercase"> carreta dpe ap </a></strong></p>
+<p class="h4 text-center"><i class="text-sm"> Sistema de Atendimento - </i><strong> <a href="https://defensoria.ap.def.br/" target="_blank" title="visitar site: https://defensoria.ap.def.br/" class="text-success text-uppercase"> carreta dpe ap </a></strong></p>
         </div>
         <div class="col-md-12" id="slides">
             <div class="card">
