@@ -1,4 +1,4 @@
-<div class='panel' id='profissionais' style="background-color:rgb(220,220,220);">
+<div class='panel bg-white' id='profissionais'>
     <!-- INICIO PANEL DE ACESSO RÁDPIDO -->
         <div class='panel-heading'>
             <div style="padding: 1em;"> 
@@ -15,24 +15,24 @@
                         <div class="icon">
                             <i class="ion ion-ionic"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Configurações de Eventos</a>
+                        <a href="#" class="small-box-footer text-sm">Configurações de Eventos</a>
 
-                        <div class="inner h3 bg-primary">
-                            <strong style="color:#000">Módulo Carreta:</strong> 
-                            <p class='text-justify'>- Usado para cadastrar novos eventos relacionados aos atendimentos 
-                            externos da Defensoria Públicado do Amapá,
-                            utilizando ou não a Carreta da Defensoria;</p>
-                            <p class='text-justify'>- Usado para editar os dados já cadastrados,
-                            podendo ajustar as informações ja cadastrados;</p>
-                            <p class='text-justify'>- Evento ou eventos já cadastrado podem ser habilitados ou desabiliatos.
-                                Este procedimento é obrigatório para qualquer atuação nos atendimentos
-                                da Defensoria Pública no atendimento externo aos assistidos.</p>                            
+                        <div class="inner h3 bg-default">
+
+                        <button type="button" class="btn btn-secondary text-justify" data-toggle="tooltip" data-placement="bottom" 
+                        title="
+Usado para cadastrar novos eventos relacionados aos atendimentos externos
+da Defensoria Públicado do Amapá, utilizando ou não a Carreta da Defensoria
+Usado para editar os dados já cadastrados, podendo ajustar as informações ja
+cadastrados Evento ou eventos já cadastrado podem ser habilitados ou desabiliatos.
+Este procedimento é obrigatório para qualquer atuação nos atendimentos
+da Defensoria Pública no atendimento externo aos assistidos.
+                        ">Módulo Carreta</button>                        
                         </div>
-
                     </div>
                 </div>
                 <div class="order-2 col-lg-3 col-6" onclick="Mostra(2)" style='cursor: crosshair;'>
-                    <div class="small-box bg-secondary">
+                    <div class="small-box bg-warning">
                         <div class="inner">
                             <h3 >Usuários</h3>
                             <h4 class="box-body">Cadastrar/Editar</h4>
@@ -40,20 +40,19 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Configurações de Membros e Usuários</a>
+                        <a href="#" class="small-box-footer text-sm">Configurações de Membros e Usuários</a>
 
-                        <div class="inner h3 bg-primary">
-                            <strong style="color:#000">Módulo Usuários:</strong> 
-                            <p class='text-justify'>- Usado para cadastrar novos usuários relacionados aos atendimentos 
-                            externos da Defensoria Públicado do Amapá,
-                            utilizando ou não a Carreta da Defensoria;</p>
-                            <p class='text-justify'>- Usado para editar os dados já cadastrados,
-                            podendo ajustar as informações dos usários;</p>
-                            <p class='text-justify'>- É obrigatório habilitar os usários que deverão atuar nos eventos.
-                            Não deverá habilitar o mesmo usuário para diferentes eventos ao mesmo tempo, e o mesmo terá
-                            um histórico de suas respectivas atuações.</p>                            
-                        </div>
-                       
+                        <div class="inner h3 bg-default">
+                        <button type="button" class="btn btn-secondary text-justify" data-toggle="tooltip" data-placement="bottom" 
+                        title="
+Usado para cadastrar novos usuários relacionados aos atendimentos 
+externos da Defensoria Públicado do Amapá,utilizando ou não a Carreta da Defensoria
+Usado para editar os dados já cadastrados,podendo ajustar as informações dos usários;
+É obrigatório habilitar os usários que deverão atuar nos eventos.
+Não deverá habilitar o mesmo usuário para diferentes eventos ao mesmo tempo, e o mesmo terá
+um histórico de suas respectivas atuações.
+                            ">Módulo Usuários</button>      
+                        </div>                       
                     </div>
                 </div>
                 <div class="order-3 col-lg-3 col-6" onclick="Mostra(3)" style='cursor: crosshair;'>
@@ -65,22 +64,19 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Relatórios finlizados/em espera</a>
+                        <a href="#" class="small-box-footer text-sm">Relatórios finlizados/em espera</a>
 
-                        <div class="inner h3 bg-primary">
-                            <strong style="color:#000">Módulo Relatórios:</strong> 
-                            <p class='text-justify'>- Usado para relatar por evento relacionados aos atendimentos 
-                            externos da Defensoria Públicado do Amapá,
-                            utilizando ou não a Carreta da Defensoria;</p>
-                            <p class='text-justify'>- Podendo criar relatório dinâmicos por, eventos, membros e 
-                            respectivos assistidos que tenham sido atendidos;</p>
-                            <p class='text-justify'>- Os relatórios podem também ser criados por, assistidos em 
-                            direfetes eventos.</p>      
-                            <p class='text-justify'>- Nomes de membro, nome ou cpf do  assistido, tempo de atendimento,
-                                número de assistidos.</p>                       
+                        <div class="inner h3 bg-default">
+                            <button type="button" class="btn btn-secondary text-justify" data-toggle="tooltip" data-placement="bottom" 
+                        title="
+Usado para relatar por evento relacionados aos atendimentos 
+externos da Defensoria Públicado do Amapá, utilizando ou não 
+a Carreta da Defensoria, Podendo criar relatório dinâmicos por, eventos, membros e 
+respectivos assistidos que tenham sido atendidos;
+Os relatórios podem também ser criados por, assistidos em 
+direfetes eventos. Nomes de membro, nome ou cpf do  assistido,
+tempo de atendimento, número de assistidos.">Módulo Relatórios</button>      
                         </div>
-
-
                     </div>
                 </div>
                 <div class="order-4 col-lg-3 col-6" onclick="Mostra(4)" style='cursor: crosshair;'>
@@ -92,17 +88,19 @@
                         <div class="icon">
                             <i class="ion ion-person"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Configurações de Módulos</a>
+                        <a href="#" class="small-box-footer text-sm">Configurações de Módulos</a>
 
-                        <div class="inner h3 bg-primary">
-                            <strong style="color:#000;">Módulo Inserir:</strong> 
-                            <p class='text-justify'>- Usado para cadastrar novas opções relacionados aos atendimentos 
-                            externos da Defensoria Públicado do Amapá,
-                            utilizando ou não a Carreta da Defensoria;</p>
-                            <p class='text-justify'>- Cadastrar Deficiências se necessário, relaconado ao assistido;</p>
-                            <p class='text-justify'>- Cadastrar Nível de Atendimento e ou Sexo;</p>                            
-                            <p class='text-justify'>- Cadastrar Núcleo, Ações e ou Tipo de Documento;</p>                            
-                            <p class='text-justify'>- Cadastrar função no sistema.</p>                            
+                        <div class="inner h3 bg-default">
+                            <button type="button" class="btn btn-secondary text-justify" data-toggle="tooltip" data-placement="bottom" 
+                        title=" 
+Usado para cadastrar novas opções relacionados aos atendimentos 
+externos da Defensoria Públicado do Amapá,
+utilizando ou não a Carreta da Defensoria
+Cadastrar Deficiências se necessário, relaconado ao assistido.
+Cadastrar Nível de Atendimento e ou Sexo.
+Cadastrar Núcleo, Ações e ou Tipo de Documento.
+Cadastrar função no sistema.
+                            ">Módulo Inserir</button>                             
                         </div>
 
                     </div>
